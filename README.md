@@ -10,17 +10,17 @@ This disclaimer and license supercedes anything else you may have heard or read 
 
 # Strategy Description
 
-This strategy buys crypto that are trending up based on two EMAs. It sells all the 
-cryptos that are not trending up that it currently owns and buys the cryptos that are 
-trending up that it does not currently own.
+This strategy is loosely based on Ray Dalio's All Weather Portfolio. It will buy a diversified portfolio of leveraged assets
+and rebalance the portfolio when the drift exceeds a certain threshold. The idea is that this portfolio will perform well
+in all economic conditions because it is diversified across asset classes, and leveraged to increase returns.
 
 # Installation
 
 To run this strategy on Replit you need to click the "Run on Repl.it" button below and fill in your secret keys in the replit secrets tab. 
  
-### Tio: Right click on the button and open it in a new tab so that you can see the instructions while you are setting up the strategy (otherwise you will have to press the back button to see the instructions again).
+### TIP: Right click on the button and open it in a new tab so that you can see the instructions while you are setting up the strategy (otherwise you will have to press the back button to see the instructions again).
 
-[![Run on Repl.it](https://replit.com/badge/github/Lumiwealth-Strategies/crypto_double_ema_trending)](https://replit.com/new/github/Lumiwealth-Strategies/crypto_double_ema_trending)
+[![Run on Repl.it](https://replit.com/badge/github/Lumiwealth-Strategies/diversified_leverage_with_threshold)](https://replit.com/new/github/Lumiwealth-Strategies/diversified_leverage_with_threshold)
 
 # Configuration
 

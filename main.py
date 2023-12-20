@@ -7,7 +7,6 @@ from lumibot.backtesting import YahooDataBacktesting
 from lumibot.entities import TradingFee
 from lumibot.strategies.strategy import Strategy
 from lumibot.traders import Trader
-from record_keeper import RecordKeeper
 
 # load .env file (if one exists)
 load_dotenv()
@@ -31,12 +30,12 @@ IS_PAPER_TRADING = os.environ.get("ALPACA_IS_PAPER")
 # The date and time to start backtesting from
 BACKTESTING_START = datetime(2010, 2, 15)
 # The date and time to end backtesting
-BACKTESTING_END = datetime(2010, 12, 7)
+BACKTESTING_END = datetime(2023, 12, 19)
 # The trading fee to use for backtesting
 TRADING_FEE = TradingFee(percent_fee=0.001)  # Assuming 0.1% fee per trade
 
 
-class DiversifiedLeverageWithThreshold(RecordKeeper, Strategy):
+class DiversifiedLeverageWithThreshold(Strategy):
     # =====Overloading lifecycle methods=============
 
     parameters = {
@@ -89,9 +88,9 @@ class DiversifiedLeverageWithThreshold(RecordKeeper, Strategy):
         if drift > self.parameters["drift_threshold"]:
             self.log_message(f"Drift is {drift:.2f}, so we need to rebalance")
 
-            # Send a message to Discord
-            self.send_discord_message(
-                f"-----------\nRebalancing portfolio because the drift is {drift:.2f}"
+            self.log_message(
+                f"-----------\nRebalancing portfolio because the drift is {drift:.2f}",
+                broadcast=True,
             )
 
             self.rebalance_portfolio()
@@ -100,13 +99,10 @@ class DiversifiedLeverageWithThreshold(RecordKeeper, Strategy):
                 f"Drift is only {drift:.2f}, so we don't need to rebalance"
             )
 
-            # Send a message to Discord
-            self.send_discord_message(
-                f"-----------\nNot rebalancing portfolio because the drift is only {drift:.2f}. No action taken."
+            self.log_message(
+                f"-----------\nNot rebalancing portfolio because the drift is only {drift:.2f}. No action taken.",
+                broadcast=True,
             )
-
-        # Send the account summary to Discord for RecordKeeper
-        self.send_account_summary_to_discord()
 
     def calc_portfolio_drift(self, tradeable_portfolio_pct=1):
         total_portfolio_drift = Decimal(0)
@@ -214,7 +210,11 @@ class DiversifiedLeverageWithThreshold(RecordKeeper, Strategy):
 
 
 if __name__ == "__main__":
-    if IS_LIVE:
+    # Convert the string to a boolean.
+    # This will be True if the string is "True", and False otherwise.
+    is_live = IS_LIVE.lower() != "false"
+
+    if is_live:
         ####
         # Live Trading
         ####
