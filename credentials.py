@@ -11,5 +11,5 @@ ALPACA_CONFIG = {  # Paper trading!
     # Put your own Alpaca secret here:
     "API_SECRET": os.environ.get("ALPACA_API_SECRET"),
     # If you want to use real money you must change this to False
-    "PAPER": os.environ.get("ALPACA_IS_PAPER"),
+    "PAPER": os.environ.get("ALPACA_IS_PAPER").lower() == "true",
 }
