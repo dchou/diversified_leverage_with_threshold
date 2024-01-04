@@ -1,12 +1,20 @@
 # Disclaimer
 
-This strategy is for educational purposes only. It is not intended to be investment advice or to be used with real money, use at your own risk. Any backtesting results are hypothetical and do not represent actual trading. There is no guarantee that the strategy will perform as well in the future as it did in the past, and there is no guarantee that it will be profitable in the future. Furthermore, the strategy may not be appropriate for your financial situation and risk tolerance. You should not make any investment decisions based solely on what you read here as it is not a substitute for professional investment advice and the backtests may contain errors.
+This strategy and the accompanying code are provided for educational purposes only and are not intended to be used with real money or as investment advice. They are meant to be used as tools for financial analysis and should not be the sole basis for any investment decisions. Lumiwealth is not a licensed investment advisor.
 
-Furthermore, the code here is given as is without any warranty. While the code is believed to be correct, there is no guarantee that it is free of bugs or errors. All information below (such as the strategy description, backtest, etc) is given as is without any warranty, and may be incorrect. The code and information below may be changed at any time without notice.
+1. Hypothetical Performance: Any backtesting results presented are hypothetical and do not represent actual trading. Past performance is not indicative of future results. There is no guarantee that the strategy will perform similarly in the future, nor is there any assurance of profitability.
 
-For more information see the [license](LICENSE).
+2. User Risk: The strategy and code may not be suitable for your specific financial situation and risk tolerance. It is crucial to consult with a qualified financial professional before making any investment decisions.
 
-This disclaimer and license supercedes anything else you may have heard or read about this strategy or code, including anything on the Lumiwealth website, social media, or elsewhere. Regardless of what you may have heard or read elsewhere, this disclaimer and license is the only valid and binding agreement between you and Lumiwealth regarding this strategy and code. If you do not agree with this disclaimer and license, you must not use this strategy or code.
+3. Code Warranty: The code is provided 'as is' without any warranty. While efforts have been made to ensure its correctness, Lumiwealth does not guarantee that the code is free from bugs or errors.
+
+4. Information Accuracy: All accompanying information, including strategy descriptions, backtests, etc., is provided without warranty and may be subject to errors or inaccuracies. Lumiwealth reserves the right to make changes to the code and information at any time without notice.
+
+5. License: For detailed licensing information, please refer to the [license](LICENSE).
+
+6. Scope of Agreement: This disclaimer is specific to the strategy and code in question and does not supersede the broader Terms of Service agreed upon during the Lumiwealth signup process. It is an integral part of the larger legal framework governing your use of Lumiwealth's services.
+
+By using this strategy and code, you acknowledge and agree to the terms outlined in this disclaimer, which form part of the agreement between you and Lumiwealth.
 
 # Strategy Description
 
