@@ -23,8 +23,6 @@ in all economic conditions because it is diversified across asset classes, and l
 # Configuration
 ###################
 
-# Set to True to run the strategy live, False to backtest
-IS_LIVE = os.environ.get("IS_LIVE")
 # Set this to False if you want to trade with real money, or True if you want to paper trade
 IS_PAPER_TRADING = os.environ.get("ALPACA_IS_PAPER")
 # The date and time to start backtesting from
@@ -210,16 +208,18 @@ class DiversifiedLeverageWithThreshold(Strategy):
 
 
 if __name__ == "__main__":
-    # Convert the string to a boolean.
-    # This will be True if the string is "True", and False otherwise.
-    is_live = IS_LIVE.lower() != "false"
+    import os
 
-    if is_live:
+    # Check if we are backtesting or not
+    IS_BACKTESTING = os.environ.get("IS_BACKTESTING")
+
+    if not IS_BACKTESTING or IS_BACKTESTING.lower() == "false":
         ####
         # Live Trading
         ####
-        from credentials import ALPACA_CONFIG
         from lumibot.brokers import Alpaca
+
+        from credentials import ALPACA_CONFIG
 
         trader = Trader()
         broker = Alpaca(ALPACA_CONFIG)
@@ -228,7 +228,7 @@ if __name__ == "__main__":
         trader.add_strategy(strategy)
         strategies = trader.run_all()
 
-    else:
+    elif IS_BACKTESTING.lower() == "true":
         ####
         # Backtest the strategy
         ####
@@ -242,4 +242,9 @@ if __name__ == "__main__":
             benchmark_asset="SPY",
             buy_trading_fees=[TRADING_FEE],
             sell_trading_fees=[TRADING_FEE],
+        )
+
+    else:
+        raise ValueError(
+            f"IS_BACKTESTING must be either True or False, but it is {IS_BACKTESTING}"
         )
