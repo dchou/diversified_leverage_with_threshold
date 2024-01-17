@@ -61,7 +61,7 @@ class DiversifiedLeverageWithThreshold(Strategy):
             },
             {
                 "symbol": "DIG",  # 2x Leveraged Oil and Gas Companies (Commodities)
-                "weight": 0.15,
+                "weight": 0.149,
             },
         ],
         # This is the drift threshold that will trigger a rebalance (a drift of 0.23 means 23%)
@@ -205,6 +205,9 @@ class DiversifiedLeverageWithThreshold(Strategy):
         for order in orders:
             if order.side == "buy":
                 self.submit_order(order)
+
+                # Sleep for 5 seconds to make sure the buy order is executed
+                self.sleep(5)
 
 
 if __name__ == "__main__":
