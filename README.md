@@ -40,8 +40,8 @@ If you are running the strategy on your own computer, you can set these as envir
 |-------------------|-----------------------------------------------------------------------------------------------|-----------------------------------------|
 | ALPACA_API_KEY    | Your API key from your Alpaca brokerage account                                               | PK7T6YVAX6PMH1EM20YN                    |
 | ALPACA_API_SECRET | Your secret key from your Alpaca brokerage account                                            | 9WgJLS3wIXq54FCpHwwZjCp8JCfJfKuwSrYskKMA |
-| ALPACA_IS_PAPER   | Set to "True" to use the Alpaca paper trading API, set to "False" to use the Alpaca real money trading API (defaults to True) | True                                  |
-| IS_BACKTESTING    | Set to "True" to run the strategy in backtesting mode, set to "False" to run the strategy live (defaults to False) | False                                  |
+| ALPACA_IS_PAPER   | **(Optional)** Set to "True" to use the Alpaca paper trading API, set to "False" to use the Alpaca real money trading API (defaults to True) | True                                  |
+| IS_BACKTESTING    | **(Optional)** Set to "True" to run the strategy in backtesting mode, set to "False" to run the strategy live (defaults to False) | False                                  |
 
 # Modifying the Parameters
 

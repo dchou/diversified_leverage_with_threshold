@@ -7,7 +7,7 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10.0,<3.11"
 python-dotenv = "^1.0.0"
-lumibot = ">=2.9.10"
+lumibot = ">=3.0.2"
 pandas-ta = "^0.3.14b0"
 
 [tool.pyright]

@@ -1,15 +1,12 @@
-import os
 from datetime import datetime
 from decimal import Decimal
 
-from dotenv import load_dotenv
 from lumibot.backtesting import YahooDataBacktesting
 from lumibot.entities import TradingFee
 from lumibot.strategies.strategy import Strategy
 from lumibot.traders import Trader
 
-# load .env file (if one exists)
-load_dotenv()
+from credentials import IS_BACKTESTING
 
 """
 Strategy Description
@@ -23,8 +20,6 @@ in all economic conditions because it is diversified across asset classes, and l
 # Configuration
 ###################
 
-# Set this to False if you want to trade with real money, or True if you want to paper trade
-IS_PAPER_TRADING = os.environ.get("ALPACA_IS_PAPER")
 # The date and time to start backtesting from
 BACKTESTING_START = datetime(2010, 2, 15)
 # The date and time to end backtesting
@@ -211,12 +206,7 @@ class DiversifiedLeverageWithThreshold(Strategy):
 
 
 if __name__ == "__main__":
-    import os
-
-    # Check if we are backtesting or not
-    IS_BACKTESTING = os.environ.get("IS_BACKTESTING")
-
-    if not IS_BACKTESTING or IS_BACKTESTING.lower() == "false":
+    if not IS_BACKTESTING:
         ####
         # Live Trading
         ####
